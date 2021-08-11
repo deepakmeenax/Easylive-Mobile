@@ -1,21 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
+import { PersistGate } from 'redux-persist/integration/react';
+import { enableScreens } from 'react-native-screens';
+enableScreens();
+
+import { store, persistor } from './src/redux/store';
+import Navigator from './src/navigations/Navigator';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  const [isFontLoaded, setISFontLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadfont() {
+      await Font.loadAsync({
+        'Bold': require('./src/assets/fonts/Montserrat-ExtraBold.otf'),
+        'Medium': require('./src/assets/fonts/Montserrat-Medium.otf'),
+        'Regular': require('./src/assets/fonts/Montserrat-Regular.otf'),
+      });
+      setISFontLoaded(true);
+    }
+    loadfont();
+  }, []);
+
+  return isFontLoaded ? (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Navigator />
+      </PersistGate>
+    </Provider>
+  ) : (
+    <AppLoading />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
