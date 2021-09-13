@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -9,15 +10,23 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function Header({ navigation }) {
+  const formatedAddress = useSelector(state => state.location.formatedAddress);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header_row}>
         <TouchableOpacity
           style={styles.header_left}
-          onPress={() => navigation.navigate('LocationModal')}
+          onPress={() => navigation.navigate('LocationScreen')}
         >
-          <Text style={styles.locationtxt}>
-            <Octicons name='location' size={15} color='tomato' /> New York City
+          <Text
+            numberOfLines={1}
+            ellipsizeMode='tail'
+            style={styles.locationtxt}
+          >
+            <Octicons name='location' size={20} color='tomato' />
+            {'  '}
+            {formatedAddress}
           </Text>
         </TouchableOpacity>
         <View style={styles.header_right}>
@@ -49,6 +58,7 @@ const styles = StyleSheet.create({
   },
   locationtxt: {
     fontSize: 15,
+    fontFamily: 'Bold',
   },
   header_right: {
     width: windowWidth * 0.5,

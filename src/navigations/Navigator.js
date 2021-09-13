@@ -13,11 +13,12 @@ import ShopScreen from '../screens/Shop';
 import ProfileScreen from '../screens/Profile';
 import SearchScreen from '../screens/Search';
 import ResultScreen from '../screens/Result';
-import LocationModal from '../screens/Location';
+import LocationScreen from '../screens/Location';
 import CartScreen from '../screens/Cart';
 import Login from '../screens/Login';
 import OtpVerify from '../screens/OtpVerify';
 import Header from '../components/Header';
+import LocationHeader from '../components/LocationHeader';
 
 // function Authstack() {
 //   return (
@@ -66,18 +67,6 @@ function BottomTabStack() {
   );
 }
 
-const modalOptions = {
-  headerShown: false,
-  mode: 'modal',
-  cardStyle: { backgroundColor: 'transparent', opacity: 1 },
-  transitionConfig: () => ({
-    containerStyle: {
-      backgroundColor: 'transparent',
-    },
-  }),
-  cardOverlayEnabled: true,
-};
-
 const MainScreens = createStackNavigator();
 function MainStack() {
   return (
@@ -94,28 +83,15 @@ function MainStack() {
       <MainScreens.Screen name='CartScreen' component={CartScreen} />
       <MainScreens.Screen name='ProfileScreen' component={ProfileScreen} />
       <MainScreens.Screen
-        name='LocationModal'
-        component={LocationModal}
-        options={modalOptions}
-        mode='modal'
+        name='LocationScreen'
+        component={LocationScreen}
+        options={{
+          header: ({ navigation }) => <LocationHeader navigation={navigation} />,
+        }}
       />
     </MainScreens.Navigator>
   );
 }
-
-// const AppScreens = createStackNavigator();
-// function AppStack() {
-//   return (
-//     <AppScreens.Navigator screenOptions={{ headerShown: false }}>
-//       <AppScreens.Screen name='MainStack' component={MainStack} />
-//       <AppScreens.Screen
-//         name='LocationModal'
-//         component={LocationModal}
-//         options={modalOptions}
-//       />
-//     </AppScreens.Navigator>
-//   );
-// }
 
 export default function Navigator() {
   const isLogin = useSelector(state => state.auth.isLogin);
