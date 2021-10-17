@@ -18,11 +18,11 @@ export default function LocationScreen({ navigation }) {
 
   const isLoading = useSelector(state => state.location.isLoading);
 
-  onsucess = () => {
+  const onsucess = () => {
     navigation.navigate('BottomTabStack');
   };
 
-  getCurrentLocation = async () => {
+  const getCurrentLocation = async () => {
     let { status } = await Location.getForegroundPermissionsAsync();
     console.log(`status first ${status}`);
     if (status !== 'granted') {

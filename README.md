@@ -9,9 +9,9 @@ A Simple to use app to search accommodation.</p>
 <li class="has-line-data" data-line-start="8" data-line-end="9">Search Accommodation(Rooms and Apartment) by location.</li>
 <li class="has-line-data" data-line-start="9" data-line-end="10">Daily needed Grocery Delivery. COMMING</li>
 </ul>
-<p class="has-line-data" data-line-start="14" data-line-end="15">Our app includes these features with complete login using mobile otp and a simple and clean ui.</p>
+<p class="has-line-data" data-line-start="14" data-line-end="15">This app includes these features with complete login using mobile otp and a simple and clean ui.</p>
 <h2 class="code-line" data-line-start=16 data-line-end=17 ><a id="Tech_16"></a>Tech</h2>
-<p class="has-line-data" data-line-start="18" data-line-end="19">Buddy uses a number of open source tools and libraries to work properly:</p>
+<p class="has-line-data" data-line-start="18" data-line-end="19">This App uses a number of open source tools and libraries to work properly:</p>
 <h5 class="code-line" data-line-start=20 data-line-end=21 ><a id="Frontend_20"></a>Frontend</h5>
 <ul>
 <li class="has-line-data" data-line-start="21" data-line-end="22"><a href="https://reactjs.org/">React.js</a> - JavaScript library for building or UI components</li>
@@ -34,7 +34,7 @@ A Simple to use app to search accommodation.</p>
 <h2 class="code-line" data-line-start=34 data-line-end=35 ><a id="Installation_34"></a>Installation</h2>
 
 <h4 class="code-line" data-line-start=66 data-line-end=67 ><a id="Mobile_App_66"></a>Mobile App</h4>
-<p class="has-line-data" data-line-start="67" data-line-end="69">BBD requires <a href="https://expo.io/">Expo</a> to run.<br>
+<p class="has-line-data" data-line-start="67" data-line-end="69">This App requires <a href="https://expo.io/">Expo</a> to run.<br>
 Install expo-cli</p>
 <pre><code class="has-line-data" data-line-start="70" data-line-end="72" class="language-sh">npm install --global expo-cli
 </code></pre>

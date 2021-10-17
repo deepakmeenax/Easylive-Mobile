@@ -20,11 +20,11 @@ export default function LocationHeader({ navigation }) {
 
   const dispatch = useDispatch();
 
-  onsucess = () => {
+  const onsucess = () => {
     navigation.navigate('BottomTabStack');
   };
 
-  handleChanges = async text => {
+  const handleChanges = async text => {
     setSearchkeyword(text);
     if (searchKeyword.trim() === '') {
       setShowingResults(false);
@@ -35,7 +35,7 @@ export default function LocationHeader({ navigation }) {
     }
   };
 
-  searchLocation = async () => {
+  const searchLocation = async () => {
     axios
       .request({
         method: 'post',
@@ -53,7 +53,7 @@ export default function LocationHeader({ navigation }) {
       });
   };
 
-  getLocation = place_id => {
+  const getLocation = place_id => {
     // https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJrTLr-GyuEmsRBfy61i59si0&key=YOUR_API_KEY
     axios
       .request({
